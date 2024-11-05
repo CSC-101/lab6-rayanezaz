@@ -64,17 +64,80 @@ class TestCases(unittest.TestCase):
 
 
     # Part 1
+    def testSelectionSortBooks1(self):
+        input = [data.Book(["Suzanne Collins"], "The Hunger Games"), data.Book(["Rick Riordan"], "Percy Jackson")]
+        expected = [data.Book(["Rick Riordan"], "Percy Jackson"), data.Book(["Suzanne Collins"], "The Hunger Games")]
+        result = lab6.selection_sort_books(input)
+        self.assertEqual(expected, result)
 
+    def testSelectionSortBooks2(self):
+        input = [data.Book(["Diana Gabaldon"], "Outlander"), data.Book(["John Ronald Reuel Tolkien"], "The Lord of the Rings")]
+        expected = [data.Book(["Diana Gabaldon"], "Outlander"), data.Book(["John Ronald Reuel Tolkien"], "The Lord of the Rings")]
+        result = lab6.selection_sort_books(input)
+        self.assertEqual(expected, result)
+
+    def testSelectionSortBooks3(self):
+        input = [data.Book(["Dr. Seuss"], "The Cat in the Hat"), data.Book(["Lincoln Peirce"], "Big Nate")]
+        expected = [data.Book(["Lincoln Peirce"], "Big Nate"), data.Book(["Dr. Seuss"], "The Cat in the Hat")]
+        result = lab6.selection_sort_books(input)
+        self.assertEqual(expected, result)
 
     # Part 2
+    def testSwapCase1(self):
+        input = "LoLlApAlOoZa"
+        expected = "lOlLaPaLoOzA"
+        result = lab6.swap_case(input)
+        self.assertEqual(expected, result)
 
+    def testSwapCase2(self):
+        input = "2435rOBOt"
+        expected = "2435RoboT"
+        result = lab6.swap_case(input)
+        self.assertEqual(expected, result)
+
+    def testSwapCase3(self):
+        input = ""
+        expected = ""
+        result = lab6.swap_case(input)
+        self.assertEqual(expected, result)
 
     # Part 3
+    def testStrTranslate1(self):
+        input = "lollipop"
+        result = lab6.str_translate(input, "l", "x")
+        expected = "xoxxipop"
+        self.assertEqual(expected, result)
 
+    def testStrTranslate2(self):
+        input = "Cal Poly 2 - 0 Santa Barbara"
+        result = lab6.str_translate(input, "a", "w")
+        expected = "Cwl Poly 2 - 0 Swntw Bwrbwrw"
+        self.assertEqual(expected, result)
+
+    def testStrTranslate3(self):
+        input = ""
+        result = lab6.str_translate(input, "o", "p")
+        expected = ""
+        self.assertEqual(expected, result)
 
     # Part 4
+    def testHistogram1(self):
+        input = "My favorite food is pizza"
+        expected = {"My": 1, "favorite": 1, "food": 1, "is": 1, "pizza": 1}
+        result = lab6.histogram(input)
+        self.assertEqual(expected, result)
 
+    def testHistogram2(self):
+        input = "My favorite food is pizza and pizza and is and my favorite and food"
+        expected = {"My": 1, "favorite": 2, "food": 2, "is": 2, "pizza": 2, "and": 4, "my": 1}
+        result = lab6.histogram(input)
+        self.assertEqual(expected, result)
 
+    def testHistogram3(self):
+        input = ""
+        expected = {}
+        result = lab6.histogram(input)
+        self.assertEqual(expected, result)
 
 
 
